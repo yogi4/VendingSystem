@@ -1,4 +1,4 @@
-package com.orbitz.vending;
+package com.orbitz.vending.dto;
 
 /**
  * Created with IntelliJ IDEA.
