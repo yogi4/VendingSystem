@@ -7,7 +7,7 @@ package com.orbitz.vending.dto;
  * Time: 2:44 PM
  * Money data transfer object
  * The assumptions are that this is in USD but this class can be used to
- * suit global currencies incase Orbitz wants to expand their vending to
+ * suit global currencies incase Orbitz wants to expand their TestProcess to
  * different currency zones
  * This can be a currency note or a coin
  */

@@ -1,7 +1,5 @@
 package com.orbitz.vending.dto;
 
-import com.orbitz.vending.VendItem;
-
 /**
  * Created with IntelliJ IDEA.
  * User: bazinga
@@ -9,13 +7,13 @@ import com.orbitz.vending.VendItem;
  * Time: 8:22 PM
  * To change this template use File | Settings | File Templates.
  */
-public  class SodaCan extends VendItem {
+public  class SodaCan implements VendItem {
 
     private String itemName = "";
     private double itemPrice = 0;
     private int sodaitemSize =0;
     private int itemCount=0;
-    static int MAX_COUNT =50;
+    private static final int MAX_COUNT =25;
 
     public SodaCan(String itemName, double itemPrice)
     {
@@ -39,18 +37,7 @@ public  class SodaCan extends VendItem {
         this.itemCount = itemCount;
     }
 
-    public int getSodaitemSize() {
-        return sodaitemSize;
-    }
-
-    public void setSodaitemSize(int sodaitemSize) {
-        this.sodaitemSize = sodaitemSize;
-    }
-
-
-
-
-    @Override
+   @Override
     public double getItemPrice() {
         return itemPrice;
     }
@@ -58,6 +45,16 @@ public  class SodaCan extends VendItem {
     @Override
     public void setItemPrice(double price) {
         this.itemPrice = price;
+    }
+
+    @Override
+    public int getItemSize() {
+        return sodaitemSize;
+    }
+
+    @Override
+    public void setItemSize(int itemSize) {
+        this.sodaitemSize = itemSize;
     }
 
     @Override

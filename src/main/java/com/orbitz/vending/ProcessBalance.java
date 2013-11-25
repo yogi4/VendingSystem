@@ -7,27 +7,25 @@ import java.util.Scanner;
 
 /**
  * Created with IntelliJ IDEA.
- * User: bazinga
+ * User: Yogi
  * Date: 11/23/13
  * Time: 2:59 PM
- * This class accepts currency as input and has helper methods to process balance
+ * This class has process in dealing with balance ; accepts currency as input and has helper methods to process balance
  * Irrespective of user interface , Swing UI or webservice or command line , this class
  * has the business logic to handle balance.
  *
  */
-public class ProcessBalance {
+ class ProcessBalance {
 
     /* Modify locale to take values dynamically */
-    Locale locale = Locale.US;
-
-    NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(locale);
-    private double currentBalance  = 0;
+     private NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(Locale.US);
+     private double currentBalance  = 0;
 
     /**
      * Helper method : Total Value
      * @return double Total Value
      */
-    public double getCurrentBalance()
+    protected double getCurrentBalance()
     {
         return currentBalance;
     }
@@ -36,7 +34,7 @@ public class ProcessBalance {
      * Set total value
      * @param value  double
      */
-    private void setCurrentBalance(double value) {
+    protected void setCurrentBalance(double value) {
 
         currentBalance =value;
     }
@@ -45,7 +43,7 @@ public class ProcessBalance {
      * Add value to current balance
      * @param value
      */
-    public void addValue(double value)
+    protected void addValue(double value)
     {
         double addedvalue = getCurrentBalance() + value;
         setCurrentBalance(addedvalue);
@@ -53,9 +51,9 @@ public class ProcessBalance {
 
     /**
      * Return the value in currency format
-     * @return
+     * @return String currency format $#.##
      */
-    public String getBalanceValue()
+    protected String getBalanceValue()
     {
 
         return   currencyFormatter.format(getCurrentBalance()) ;
@@ -66,7 +64,7 @@ public class ProcessBalance {
      * @param value  double currencyvalue
      */
 
-    public void removeItemValue(double value)
+    protected void removeItemValue(double value)
     {
 
         double resultValue = getCurrentBalance() - value;
@@ -84,34 +82,27 @@ public class ProcessBalance {
      * @param value double currencyValue
      * @return  boolean true if valid or false
      */
-    public boolean validateCurrency(double value)
+    protected boolean validateCurrency(double value)
     {
             return true;
-        /* TODO */
+       //TODO implement this
 
     }
 
 
-    public static void main(String[] args) {
-        Locale locale = Locale.US;
-        Currency curr = Currency.getInstance(locale);
-        System.out.println("Locale's currency code:" + curr.getCurrencyCode());
-        Scanner input = new Scanner(System.in);
-
-
-     }
-
-    public void reset() {
-            /** TODO */
-        //Vend return the balance if any
+    protected void reset() {
         setCurrentBalance(0);
     }
 
 
-
-
-    public boolean hasSufficientBalance(double totalValue, double itemValue)
+    /**
+     * Checks to see if there is enough balance to vend
+     * @param itemValue  itemValue
+     * @return  boolean true if there is enough balance
+     */
+    protected boolean hasSufficientBalance( double itemValue)
     {
+        double totalValue = getCurrentBalance();
         return (Double.compare(totalValue,itemValue) > 0);
     }
 

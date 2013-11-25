@@ -9,10 +9,16 @@ package com.orbitz.vending.dto;
  */
 public class Coin {
 
-    public String coinType;
-    public int count;
-    public double value;
+    private String coinType;
+    private int count;
+    private double value;
 
+
+    public Coin(String coinType, int count)
+    {
+        this.setCount(count);
+        this.setCoinType(coinType);
+    }
 
     public String getCoinType() {
         return coinType;
